@@ -6,14 +6,23 @@ import { site } from "@/lib/data";
 
 const chips = [
   { label: "Next.js", className: "-left-2 top-10 sm:-left-8" },
-  { label: "React", className: "-right-2 top-24 sm:-right-8 [animation-delay:1.5s]" },
-  { label: "TypeScript", className: "bottom-12 -left-2 sm:-left-10 [animation-delay:3s]" },
+  {
+    label: "React",
+    className: "-right-2 top-24 sm:-right-8 [animation-delay:1.5s]",
+  },
+  {
+    label: "TypeScript",
+    className: "bottom-12 -left-2 sm:-left-10 [animation-delay:3s]",
+  },
 ];
 
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden">
-      <div className="bg-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div
+        className="bg-grid pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
         aria-hidden="true"
@@ -46,14 +55,26 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex items-center gap-3">
-            <Button asChild variant="outline" size="icon" aria-label="GitHub">
-              <a href={site.github} target="_blank" rel="noopener noreferrer">
-                <GithubIcon />
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="icon" aria-label="LinkedIn">
+            <Button
+              asChild
+              variant="outline"
+              size="icon"
+              aria-label="LinkedIn"
+              className=" [&_svg]:size-8"
+            >
               <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
                 <LinkedinIcon />
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="icon"
+              aria-label="GitHub"
+              className=" [&_svg]:size-8"
+            >
+              <a href={site.github} target="_blank" rel="noopener noreferrer">
+                <GithubIcon />
               </a>
             </Button>
           </div>
