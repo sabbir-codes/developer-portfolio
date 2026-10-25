@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  /* Light theme (default tokens) */
-  :root {
+  /* Light theme */
+  .light {
     --background: 0 0% 100%;
     --foreground: 240 10% 8%;
     --card: 0 0% 100%;
@@ -23,8 +23,8 @@
     --radius: 0.75rem;
   }
 
-  /* Dark theme */
-  .dark {
+  /* Dark theme (default tokens) */
+  :root {
     --background: 240 10% 4%;
     --foreground: 0 0% 96%;
     --card: 240 8% 7%;
