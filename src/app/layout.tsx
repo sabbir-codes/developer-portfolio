@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "Building modern web experiences with React and Next.js, exploring backend technologies, and turning ideas into real-world projects.",
     type: "website",
   },
+   icons: { icon: "/icon.svg" },
 };
 
 export default function RootLayout({
