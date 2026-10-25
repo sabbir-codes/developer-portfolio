@@ -23,8 +23,12 @@ export const navLinks = [
 export type Experience = {
   title: string;
   company: string;
+  logo?: string;
+  website?: string;
   period: string;
   meta: string;
+  accent: "emerald" | "violet";
+  tags: string[];
   points: string[];
 };
 
@@ -32,25 +36,25 @@ export const experience: Experience[] = [
   {
     title: "Web Developer",
     company: "Bhumi Properties Ltd.",
+website: "https://bhumigroupbd.com/",
+    logo: "/Bhumi Properties.png",
     period: "Jan 2024 – Present",
     meta: "Full-time · Dhaka, Bangladesh",
+    accent: "emerald",
+    tags: [
+      "WordPress",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "SEO",
+      "Landing Pages",
+      "Performance",
+    ],
     points: [
       "Manage and maintain corporate websites and associated web projects.",
       "Troubleshoot website issues and improve performance, responsiveness, and usability.",
       "Develop landing pages, update website content, and support SEO and digital marketing.",
       "Provide technical support for website operations and related IT systems.",
-    ],
-  },
-  {
-    title: "AI-Powered Full-Stack Web Engineering Trainee",
-    company: "Programming Hero",
-    period: "2026 – Present",
-    meta: "Professional Training",
-    points: [
-      "Learning full-stack web development through structured coursework and hands-on projects.",
-      "Building web applications using HTML, CSS, JavaScript, TypeScript, React.js, and Next.js.",
-      "Practicing authentication, API integration, and database fundamentals through project development.",
-      "Debugging real-world development issues and using AI tools to improve problem-solving and development workflows.",
     ],
   },
 ];
