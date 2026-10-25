@@ -1,8 +1,16 @@
 import Image from "next/image";
-import { ArrowDown, Download } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { Typewriter } from "@/components/typewriter";
 import { site } from "@/lib/data";
+
+// Edit these to change the animated tagline.
+const roles = [
+  "Full-Stack Developer",
+  "Next.js & TypeScript Developer",
+  "MERN Stack Developer",
+];
 
 const chips = [
   { label: "Next.js", className: "-left-2 top-10 sm:-left-8" },
@@ -13,6 +21,30 @@ const chips = [
   {
     label: "TypeScript",
     className: "bottom-12 -left-2 sm:-left-10 [animation-delay:3s]",
+  },
+];
+
+const socials = [
+  {
+    label: "LinkedIn",
+    href: site.linkedin,
+    color: "bg-[#0a66c2]",
+    icon: <LinkedinIcon className="h-5 w-5 text-white dark:text-white" />,
+    external: true,
+  },
+  {
+    label: "GitHub",
+    href: site.github,
+    color: "bg-[#24292f] dark:bg-[#3d444d]",
+    icon: <GithubIcon className="h-5 w-5 text-white dark:text-white" />,
+    external: true,
+  },
+  {
+    label: "Email",
+    href: `mailto:${site.email}`,
+    color: "bg-[#ea4335]",
+    icon: <Mail className="h-5 w-5 text-white" />,
+    external: false,
   },
 ];
 
@@ -34,47 +66,35 @@ export function Hero() {
           <h1 className="text-gradient text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
             {site.name}
           </h1>
-          <p className="mt-4 text-xl font-semibold text-foreground/90 sm:text-2xl">
-            {site.role}
+          <p className="mt-4 min-h-[2rem] font-mono text-xl font-semibold text-foreground/90 sm:min-h-[2.25rem] sm:text-2xl">
+            <Typewriter words={roles} />
           </p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {site.intro}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button asChild size="lg">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                {...(s.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${s.color}`}
+              >
+                {s.icon}
+              </a>
+            ))}
+
+            <Button
+              asChild
+              size="lg"
+              className="ml-1 rounded-full px-8 font-semibold uppercase tracking-wide shadow-[0_0_28px_-4px_hsl(var(--primary)/0.65)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_36px_-2px_hsl(var(--primary)/0.8)]"
+            >
               <a href={site.resume} target="_blank" rel="noopener noreferrer">
                 <Download /> Resume
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="#projects">
-                View Projects <ArrowDown />
-              </a>
-            </Button>
-          </div>
-
-          <div className="mt-8 flex items-center gap-3">
-            <Button
-              asChild
-              variant="outline"
-              size="icon"
-              aria-label="LinkedIn"
-              className=" [&_svg]:size-8"
-            >
-              <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
-                <LinkedinIcon />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="icon"
-              aria-label="GitHub"
-              className=" [&_svg]:size-8"
-            >
-              <a href={site.github} target="_blank" rel="noopener noreferrer">
-                <GithubIcon />
               </a>
             </Button>
           </div>
