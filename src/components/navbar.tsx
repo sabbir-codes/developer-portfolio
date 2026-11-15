@@ -12,7 +12,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
-        <a href="#home" className="text-xl font-bold tracking-tight">
+        <a href="/" className="text-xl font-bold tracking-tight">
           {site.logo}
           <span className="text-primary">.</span>
         </a>

@@ -7,6 +7,7 @@ import { EducationSection } from "@/components/education";
 import { CertificationsSection } from "@/components/certifications";
 import { ContactSection } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { ScrollToTop } from "@/components/scroll-to-top";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
