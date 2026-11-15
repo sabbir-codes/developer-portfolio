@@ -105,7 +105,7 @@ export function Hero() {
             className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-primary/40 via-primary/5 to-transparent blur-2xl"
             aria-hidden="true"
           />
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-2">
+          <div className="relative overflow-hidden rounded-[2rem] border border-primary bg-card p-2">
             <Image
               src="/sabbir.jpeg"
               alt="Portrait of Sabbir Ahammed"
