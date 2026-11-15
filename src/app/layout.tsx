@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+// @ts-expect-error Next.js handles global CSS imports during compilation.
 import "./globals.css";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -17,14 +18,18 @@ export const metadata: Metadata = {
       "Building modern web experiences with React and Next.js, exploring backend technologies, and turning ideas into real-world projects.",
     type: "website",
   },
-   icons: { icon: "/icon.svg" },
+  icons: { icon: "/icon.svg" },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Applies the saved (or system) theme before first paint to avoid a flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
